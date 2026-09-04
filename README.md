@@ -2,6 +2,8 @@
 
 فروشگاه آنلاین طلا و جواهر. فارسی، راست‌به‌چپ، با قیمت لحظه‌ای.
 
+📄 **معرفی کامل پروژه:** [mahyarmozafar.ir/projects/mozafar-gallery](https://mahyarmozafar.ir/projects/mozafar-gallery/)
+
 ---
 
 ## راه‌اندازی

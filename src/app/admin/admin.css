@@ -18,9 +18,17 @@
 .tile {
   border: 1px solid var(--hairline); border-radius: var(--radius);
   padding: 1rem 1.1rem; background: #fff;
+  min-width: 0;            /* تا خانه گرید بتواند کوچک شود */
+  overflow: hidden;
 }
 .tile__label { font-size: .76rem; color: var(--muted); margin-block-end: .3rem; }
-.tile__value { font-size: 1.5rem; font-weight: 700; line-height: 1.2; }
+/* ارزش موجودی می‌تواند ده رقم باشد (میلیارد تومان).
+   اندازه شناور تا عدد بلند از جعبه بیرون نزند. */
+.tile__value {
+  font-size: clamp(1.05rem, 2.1vw, 1.5rem);
+  font-weight: 700; line-height: 1.25;
+  overflow-wrap: anywhere;
+}
 .tile__note  { font-size: .72rem; color: var(--faint); margin-block-start: .2rem; }
 .tile--gold  { background: var(--gold-soft); border-color: #E8D9AE; }
 .tile--gold .tile__value { color: var(--gold-deep); }
