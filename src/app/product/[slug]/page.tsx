@@ -32,13 +32,9 @@ export default async function ProductPage({
           <Link href={`/shop?cat=${p.categorySlug}`}>{p.categoryName}</Link>
         </p>
 
-        <div style={{
-          display: 'grid', gap: '2.5rem',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          alignItems: 'start',
-        }}>
+        <div className="split">
           {/* عکس */}
-          <div style={{
+          <div className="pdp-media" style={{
             border: '1px solid var(--hairline)', borderRadius: 'var(--radius)',
             overflow: 'hidden', background: 'var(--bg-soft)',
           }}>

@@ -65,7 +65,7 @@ export function GoldPriceBox({
         حساب می‌شوند و قیمت همه‌ی محصولات با هم عوض می‌شود.
       </p>
 
-      <div style={{ display: 'grid', gap: '1rem', gridTemplateColumns: '2fr 1fr' }}>
+      <div className="form-grid" style={{ gridTemplateColumns: '2fr 1fr' }}>
         <label className="field">
           <span>نرخ گرم ۱۸ عیار (تومان)</span>
           <input style={input} value={val} inputMode="numeric"

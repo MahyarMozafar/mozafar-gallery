@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="10" fill="#FFFFFF"/>
+      <defs>
+        <linearGradient id="g" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
+          <stop offset="0"   stop-color="#C9A227" />
+          <stop offset=".45" stop-color="#A67C00" />
+          <stop offset="1"   stop-color="#D9BC63" />
+        </linearGradient>
+      </defs>
+
+      {/* بدنه نگین — هشت‌ضلعی */}
+      <path
+        d="M17 4h14l11 11v18L31 44H17L6 33V15z"
+        stroke="url(#g)" stroke-width="2.1"
+        stroke-linejoin="round" stroke-linecap="round"
+      />
+
+      {/* تراش‌های گوشه — همان چیزی که به شکل حس «نگین» می‌دهد */}
+      <path
+        d="M6 15l6 5M42 15l-6 5M6 33l6-5M42 33l-6-5"
+        stroke="url(#g)" stroke-width="1.1"
+        stroke-linecap="round" opacity=".55"
+      />
+
+      {/* حرف M — پایه چپ، بالا، دره وسط، بالا، پایه راست */}
+      <path
+        d="M15.5 32V17l8.5 9 8.5-9v15"
+        stroke="url(#g)" stroke-width="2.4"
+        stroke-linejoin="round" stroke-linecap="round"
+      />
+    </svg>

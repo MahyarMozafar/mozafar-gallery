@@ -28,10 +28,7 @@ export default async function CartPage() {
             <div><Link href="/shop" className="btn btn--gold">دیدن محصولات</Link></div>
           </div>
         ) : (
-          <div style={{
-            display: 'grid', gap: '2rem', marginBlockStart: '1.5rem',
-            gridTemplateColumns: 'minmax(0, 2fr) minmax(280px, 1fr)',
-          }}>
+          <div className="split--cart" style={{ display: 'grid', marginBlockStart: '1.5rem' }}>
             <div className="stack">
               {sold.length > 0 && (
                 <div className="notice">

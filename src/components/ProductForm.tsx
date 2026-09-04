@@ -100,7 +100,7 @@ export function ProductForm({
   const isJewel = f.type === 'JEWELRY' || f.type === 'BAR';
 
   return (
-    <div style={{ display: 'grid', gap: '2rem', gridTemplateColumns: 'minmax(0,2fr) minmax(250px,1fr)' }}>
+    <div className="split--aside" style={{ display: 'grid' }}>
       <div className="stack" style={{ gap: '1.5rem' }}>
         <section>
           <h2 style={{ fontSize: '1rem' }}>اطلاعات اصلی</h2>

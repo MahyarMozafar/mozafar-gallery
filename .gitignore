@@ -12,11 +12,16 @@
 /receipts
 
 # --- database ---
+# خود پایگاه داده و همه فایل‌های جانبی‌اش.
+# فایل -wal محتوای واقعی جدول‌ها را دارد — شماره موبایل مشتری و توکن نشست.
 *.db
 *.db-journal
+*.db-wal
+*.db-shm
 *.sqlite
-/prisma/*.db
-/prisma/*.db-journal
+*.sqlite-wal
+*.sqlite-shm
+/data/
 
 # --- build / deps ---
 /node_modules

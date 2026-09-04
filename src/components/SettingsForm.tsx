@@ -56,7 +56,7 @@ export function SettingsForm({
   );
 
   return (
-    <div style={{ display: 'grid', gap: '2rem', gridTemplateColumns: 'minmax(0,2fr) minmax(260px,1fr)' }}>
+    <div className="split--aside" style={{ display: 'grid' }}>
       <div className="stack" style={{ gap: '1.6rem' }}>
         <section>
           <h2 style={{ fontSize: '1rem' }}>نرخ طلا</h2>
