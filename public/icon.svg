@@ -1,30 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="10" fill="#FFFFFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><rect width="48" height="48" rx="11" fill="#FFFFFF"/><g transform="translate(2.9 2.9) scale(0.88)">
       <defs>
-        <linearGradient id="g" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
-          <stop offset="0"   stop-color="#C9A227" />
-          <stop offset=".45" stop-color="#A67C00" />
-          <stop offset="1"   stop-color="#D9BC63" />
+        <linearGradient id="g" x1="6" y1="5" x2="42" y2="43" gradientUnits="userSpaceOnUse">
+          <stop offset="0"   stop-color="#D9BC63" />
+          <stop offset=".38" stop-color="#B98F16" />
+          <stop offset=".72" stop-color="#8A6600" />
+          <stop offset="1"   stop-color="#C9A227" />
         </linearGradient>
       </defs>
 
-      {/* بدنه نگین — هشت‌ضلعی */}
+      {/* کمربند نگین */}
       <path
-        d="M17 4h14l11 11v18L31 44H17L6 33V15z"
-        stroke="url(#g)" stroke-width="2.1"
-        stroke-linejoin="round" stroke-linecap="round"
+        d="M41.55 31.27 L31.27 41.55 L16.73 41.55 L6.45 31.27 L6.45 16.73 L16.73 6.45 L31.27 6.45 L41.55 16.73Z"
+        fill="none" stroke="url(#g)" stroke-width="1.5" stroke-linejoin="round"
       />
-
-      {/* تراش‌های گوشه — همان چیزی که به شکل حس «نگین» می‌دهد */}
+      {/* تراش‌های تاج — کم‌رنگ، فقط برای حس درخشش */}
       <path
-        d="M6 15l6 5M42 15l-6 5M6 33l6-5M42 33l-6-5"
-        stroke="url(#g)" stroke-width="1.1"
-        stroke-linecap="round" opacity=".55"
+        d="M41.55 31.27L31.95 27.29 M31.27 41.55L27.29 31.95 M16.73 41.55L20.71 31.95 M6.45 31.27L16.05 27.29 M6.45 16.73L16.05 20.71 M16.73 6.45L20.71 16.05 M31.27 6.45L27.29 16.05 M41.55 16.73L31.95 20.71"
+        fill="none" stroke="url(#g)" stroke-width=".7" stroke-linecap="round" opacity=".38"
       />
-
-      {/* حرف M — پایه چپ، بالا، دره وسط، بالا، پایه راست */}
+      {/* حرف M — سریف با ضخامت متغیر */}
       <path
-        d="M15.5 32V17l8.5 9 8.5-9v15"
-        stroke="url(#g)" stroke-width="2.4"
-        stroke-linejoin="round" stroke-linecap="round"
+        d="M17.0 30.6 L17.0 18.4 L15.6 17.0 L15.6 16.2 L19.9 16.2 L24.0 25.3 L28.1 16.2 L32.4 16.2 L32.4 17.0 L31.0 18.4 L31.0 30.6 L32.4 31.9 L32.4 32.7 L27.4 32.7 L27.4 31.9 L28.8 30.6 L28.8 20.4 L23.4 32.7 L22.6 32.7 L17.6 21.2 L17.6 30.6 L19.4 31.9 L19.4 32.7 L15.4 32.7 L15.4 31.9 Z"
+        fill="url(#g)"
       />
-    </svg>
+    </g></svg>

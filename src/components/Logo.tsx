@@ -1,15 +1,17 @@
 /**
  * نشان گالری مظفر.
  *
- * طرح: نگین هشت‌ضلعی (تراش از رو به بالا) با حرف M مظفر در وسط.
+ * نگین برلیان از رو به بالا (هشت‌ضلعی با تراش‌های تاج) و حرف M مظفر در وسط.
  *
- * چرا هشت‌ضلعی و نه الماس نوک‌تیز؟ اول الماس کلاسیک کشیدم، ولی پایینش
- * نوک‌تیز است و حرف M داخلش جا نمی‌شد و خوانده نمی‌شد. نگین هشت‌ضلعی
- * وسطِ باز و پهن دارد، پس M راحت می‌نشیند و در اندازه کوچک هم پیداست.
- *
- * فقط خط است و پُری ندارد، تا روی زمینه روشن ظریف بماند.
+ * چند تصمیم که به لوکس بودنش کمک می‌کند:
+ *  - خط‌ها مویی هستند (۱٫۵ و ۰٫۷). خط کلفت ارزان به نظر می‌رسد.
+ *  - حرف M «سریف با ضخامت متغیر» است، نه هندسی. بدنه‌های مورب کلفت،
+ *    بدنه‌های عمودی نازک، با سرکش (serif) در بالا و پایین — مثل حروف دیدون
+ *    که برندهای جواهر استفاده می‌کنند.
+ *  - تراش‌ها کم‌رنگ‌اند تا حواس را از حرف پرت نکنند.
+ *  - هندسه هشت‌ضلعی دقیقاً حساب شده، نه تخمینی؛ تقارن کامل حس گران بودن می‌دهد.
  */
-export function Logo({ size = 34, className }: { size?: number; className?: string }) {
+export function Logo({ size = 36, className }: { size?: number; className?: string }) {
   return (
     <svg
       width={size} height={size} viewBox="0 0 48 48"
@@ -17,32 +19,28 @@ export function Logo({ size = 34, className }: { size?: number; className?: stri
       style={{ flexShrink: 0 }}
     >
       <defs>
-        <linearGradient id="mg-gold" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
-          <stop offset="0"   stopColor="#C9A227" />
-          <stop offset=".45" stopColor="#A67C00" />
-          <stop offset="1"   stopColor="#D9BC63" />
+        <linearGradient id="mg-gold" x1="6" y1="5" x2="42" y2="43" gradientUnits="userSpaceOnUse">
+          <stop offset="0"   stopColor="#D9BC63" />
+          <stop offset=".38" stopColor="#B98F16" />
+          <stop offset=".72" stopColor="#8A6600" />
+          <stop offset="1"   stopColor="#C9A227" />
         </linearGradient>
       </defs>
 
-      {/* بدنه نگین — هشت‌ضلعی */}
+      {/* کمربند نگین */}
       <path
-        d="M17 4h14l11 11v18L31 44H17L6 33V15z"
-        stroke="url(#mg-gold)" strokeWidth="2.1"
-        strokeLinejoin="round" strokeLinecap="round"
+        d="M41.55 31.27 L31.27 41.55 L16.73 41.55 L6.45 31.27 L6.45 16.73 L16.73 6.45 L31.27 6.45 L41.55 16.73Z"
+        fill="none" stroke="url(#mg-gold)" strokeWidth="1.5" strokeLinejoin="round"
       />
-
-      {/* تراش‌های گوشه — همان چیزی که به شکل حس «نگین» می‌دهد */}
+      {/* تراش‌های تاج — کم‌رنگ، فقط برای حس درخشش */}
       <path
-        d="M6 15l6 5M42 15l-6 5M6 33l6-5M42 33l-6-5"
-        stroke="url(#mg-gold)" strokeWidth="1.1"
-        strokeLinecap="round" opacity=".55"
+        d="M41.55 31.27L31.95 27.29 M31.27 41.55L27.29 31.95 M16.73 41.55L20.71 31.95 M6.45 31.27L16.05 27.29 M6.45 16.73L16.05 20.71 M16.73 6.45L20.71 16.05 M31.27 6.45L27.29 16.05 M41.55 16.73L31.95 20.71"
+        fill="none" stroke="url(#mg-gold)" strokeWidth=".7" strokeLinecap="round" opacity=".38"
       />
-
-      {/* حرف M — پایه چپ، بالا، دره وسط، بالا، پایه راست */}
+      {/* حرف M — سریف با ضخامت متغیر */}
       <path
-        d="M15.5 32V17l8.5 9 8.5-9v15"
-        stroke="url(#mg-gold)" strokeWidth="2.4"
-        strokeLinejoin="round" strokeLinecap="round"
+        d="M17.0 30.6 L17.0 18.4 L15.6 17.0 L15.6 16.2 L19.9 16.2 L24.0 25.3 L28.1 16.2 L32.4 16.2 L32.4 17.0 L31.0 18.4 L31.0 30.6 L32.4 31.9 L32.4 32.7 L27.4 32.7 L27.4 31.9 L28.8 30.6 L28.8 20.4 L23.4 32.7 L22.6 32.7 L17.6 21.2 L17.6 30.6 L19.4 31.9 L19.4 32.7 L15.4 32.7 L15.4 31.9 Z"
+        fill="url(#mg-gold)"
       />
     </svg>
   );

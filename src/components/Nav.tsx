@@ -28,7 +28,7 @@ export async function Nav() {
         />
 
         <Link href="/" className="brand">
-          <Logo size={34} />
+          <Logo size={36} />
           <span className="brand__text">
             <span className="brand__fa">گالری مظفر</span>
             <span className="brand__en">MOZAFAR GALLERY</span>
