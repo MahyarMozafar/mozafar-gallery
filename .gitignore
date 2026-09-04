@@ -1,0 +1,30 @@
+# --- secrets: NEVER commit these ---
+.env
+.env.*
+!.env.example
+
+# --- customer data: bank receipts show card numbers ---
+/private-uploads
+/receipts
+
+# --- database ---
+*.db
+*.db-journal
+*.sqlite
+/prisma/*.db
+/prisma/*.db-journal
+
+# --- build / deps ---
+/node_modules
+/.next
+/out
+/build
+*.tsbuildinfo
+next-env.d.ts
+
+# --- os / editor ---
+.DS_Store
+*.log
+npm-debug.log*
+.vscode
+.idea

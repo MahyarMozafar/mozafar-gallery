@@ -1,0 +1,47 @@
+/* پنل مدیریت — همان زبان طراحی سایت، ولی متراکم‌تر */
+.admin { display: grid; grid-template-columns: 232px 1fr; min-height: 100vh; }
+.admin__side {
+  border-inline-end: 1px solid var(--hairline);
+  background: var(--bg-soft); padding: 1.4rem 1rem;
+}
+.admin__brand { font-weight: 700; margin-block-end: .2rem; }
+.admin__sub { font-size: .72rem; color: var(--faint); margin-block-end: 1.6rem; }
+.admin__nav a {
+  display: block; padding: .55rem .75rem; border-radius: var(--radius-sm);
+  color: var(--muted); font-size: .9rem; margin-block-end: .15rem;
+}
+.admin__nav a:hover { background: #fff; color: var(--text); }
+.admin__nav a.is-active { background: var(--text); color: #fff; }
+.admin__main { padding: 1.8rem clamp(1rem, 3vw, 2.4rem); min-width: 0; }
+
+.tiles { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+.tile {
+  border: 1px solid var(--hairline); border-radius: var(--radius);
+  padding: 1rem 1.1rem; background: #fff;
+}
+.tile__label { font-size: .76rem; color: var(--muted); margin-block-end: .3rem; }
+.tile__value { font-size: 1.5rem; font-weight: 700; line-height: 1.2; }
+.tile__note  { font-size: .72rem; color: var(--faint); margin-block-start: .2rem; }
+.tile--gold  { background: var(--gold-soft); border-color: #E8D9AE; }
+.tile--gold .tile__value { color: var(--gold-deep); }
+.tile--warn  { background: #FFF8E6; border-color: #F0DFA8; }
+.tile--bad   { background: #FBE9E8; border-color: #F0C4C1; }
+
+.table-scroll { overflow-x: auto; border: 1px solid var(--hairline); border-radius: var(--radius); }
+table.admin-table { width: 100%; border-collapse: collapse; font-size: .87rem; min-width: 780px; }
+.admin-table th, .admin-table td {
+  padding: .6rem .8rem; text-align: right; border-block-end: 1px solid var(--hairline);
+  white-space: nowrap;
+}
+.admin-table th { background: var(--bg-soft); font-weight: 600; font-size: .8rem; color: var(--muted); }
+.admin-table tr:last-child td { border-block-end: 0; }
+.admin-table tbody tr:hover { background: var(--bg-soft); }
+.admin-table td.wide { white-space: normal; min-width: 190px; }
+
+.field { display: flex; flex-direction: column; gap: .3rem; }
+.field span { font-size: .78rem; color: var(--muted); }
+.field input, .field select, .field textarea {
+  padding: .55rem .7rem; font-size: .92rem; font-family: inherit;
+  border: 1px solid var(--hairline-2); border-radius: var(--radius-sm); background: #fff;
+}
+.form-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
