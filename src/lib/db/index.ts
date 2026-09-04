@@ -44,3 +44,16 @@ export function setSetting(key: string, value: string): void {
     'INSERT INTO settings (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value',
   ).run(key, value);
 }
+
+/**
+ * ردیف‌های node:sqlite «آبجکت ساده» نیستند (پروتوتایپ ندارند)،
+ * و React نمی‌تواند چیزی را که ساده نیست به بخش مرورگر بفرستد.
+ * این تابع آن‌ها را ساده می‌کند.
+ */
+export function plain<T>(row: any): T {
+  return (row == null ? row : { ...row }) as T;
+}
+
+export function plainAll<T>(rows: any[]): T[] {
+  return rows.map((r) => ({ ...r })) as T[];
+}

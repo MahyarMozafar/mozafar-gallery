@@ -15,7 +15,10 @@ export default function AdminProducts() {
     <>
       <div className="row" style={{ justifyContent: 'space-between', marginBlockEnd: '1.2rem' }}>
         <h1 style={{ fontSize: '1.5rem', margin: 0 }}>محصولات</h1>
-        <span className="muted small">{toFa(items.length)} قطعه</span>
+        <div className="row">
+          <span className="muted small">{toFa(items.length)} قطعه</span>
+          <Link href="/admin/products/new" className="btn btn--gold">+ محصول تازه</Link>
+        </div>
       </div>
 
       <div className="table-scroll">
@@ -34,7 +37,9 @@ export default function AdminProducts() {
                   <img src={p.image} alt="" width={42} height={42}
                        style={{ width: 42, height: 42, objectFit: 'cover', borderRadius: 6 }} />
                 </td>
-                <td className="wide">{p.name}</td>
+                <td className="wide">
+                  <Link href={`/admin/products/${p.id}`}>{p.name}</Link>
+                </td>
                 <td className="num">{p.sku}</td>
                 <td>{TYPE_FA[p.type] ?? p.type}</td>
                 <td className="num">{p.karat ? toFa(p.karat) : '—'}</td>
@@ -50,7 +55,10 @@ export default function AdminProducts() {
                     ? <span className="pill pill--ok">{toFa(p.stock)}</span>
                     : <span className="pill pill--out">۰</span>}
                 </td>
-                <td><Link href={`/product/${p.slug}`} className="small">دیدن</Link></td>
+                <td>
+                  <Link href={`/admin/products/${p.id}`} className="small"
+                        style={{ color: 'var(--gold-deep)', fontWeight: 500 }}>ویرایش</Link>
+                </td>
               </tr>
             ))}
           </tbody>

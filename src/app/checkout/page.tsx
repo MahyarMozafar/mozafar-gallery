@@ -1,5 +1,7 @@
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 import { cartItems } from '@/lib/cart.ts';
+import { currentUser } from '@/lib/auth/session.ts';
 import { shopInfo, goldRates } from '@/lib/shop.ts';
 import { faMoney, toFa, faDateTime } from '@/lib/format/fa.ts';
 import { getSettingNum } from '@/lib/db/index.ts';
@@ -7,6 +9,10 @@ import { getSettingNum } from '@/lib/db/index.ts';
 export const dynamic = 'force-dynamic';
 
 export default async function Checkout() {
+  // تنها جایی از کل سایت که ورود لازم است
+  const user = await currentUser();
+  if (!user) redirect('/login?returnTo=/checkout');
+
   const items = (await cartItems()).filter((p) => p.stock > 0);
   const s = shopInfo();
   const r = goldRates();

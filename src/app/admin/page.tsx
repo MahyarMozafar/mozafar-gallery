@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { dashboardStats } from '@/lib/admin.ts';
 import { goldRates, settings } from '@/lib/shop.ts';
 import { faMoney, faWeight, toFa, faDateTime, faPercent } from '@/lib/format/fa.ts';
+import { GoldPriceBox } from '@/components/GoldPriceBox.tsx';
+import { getSettingNum } from '@/lib/db/index.ts';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,6 +20,13 @@ export default function AdminHome() {
         {' '}· منبع: {r.source === 'manual' ? 'دستی' : r.source}
         {' '}· بروزرسانی: {faDateTime(r.fetchedAt)}
       </p>
+
+      <div style={{ marginBlockEnd: '1.5rem' }}>
+        <GoldPriceBox
+          gram18={getSettingNum('manualGram18', 22000000)}
+          changePercent={getSettingNum('changePercent', 0)}
+        />
+      </div>
 
       <div className="tiles">
         <div className="tile tile--gold">

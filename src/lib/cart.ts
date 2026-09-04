@@ -42,3 +42,33 @@ export async function cartCount(): Promise<number> {
   const r = db().prepare('SELECT COUNT(*) c FROM cart_items WHERE cart_id = ?').get(id) as any;
   return r?.c ?? 0;
 }
+
+/**
+ * سبد مهمان را به حساب کاربر می‌چسباند.
+ * وقتی کسی چند قطعه در سبد گذاشته و بعد وارد می‌شود، چیزی نباید گم شود.
+ */
+export async function mergeGuestCart(userId: number): Promise<number> {
+  migrate();
+  const guestId = await cartIdFromCookie();
+  if (!guestId) return 0;
+
+  const d = db();
+  d.prepare('INSERT OR IGNORE INTO carts (id, user_id) VALUES (?, ?)').run(guestId, userId);
+  d.prepare('UPDATE carts SET user_id = ? WHERE id = ?').run(userId, guestId);
+
+  // اگر قبلاً سبد دیگری داشته، اقلامش را هم می‌آوریم
+  const old = d.prepare(
+    'SELECT id FROM carts WHERE user_id = ? AND id != ?').all(userId, guestId) as any[];
+  let moved = 0;
+  for (const c of old) {
+    const items = d.prepare('SELECT product_id FROM cart_items WHERE cart_id = ?')
+      .all(c.id) as any[];
+    for (const it of items) {
+      const r = d.prepare('INSERT OR IGNORE INTO cart_items (cart_id, product_id) VALUES (?,?)')
+        .run(guestId, it.product_id);
+      moved += Number(r.changes);
+    }
+    d.prepare('DELETE FROM carts WHERE id = ?').run(c.id);
+  }
+  return moved;
+}

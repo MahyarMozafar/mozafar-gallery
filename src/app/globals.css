@@ -286,3 +286,30 @@ button { font: inherit; cursor: pointer; }
 .pill { font-size: .74rem; padding: .12rem .5rem; border-radius: 5px; background: var(--bg-softer); color: var(--muted); }
 .pill--ok   { background: #E4F3EA; color: var(--green); }
 .pill--out  { background: #FBE9E8; color: var(--red); }
+
+/* ---------- صفحه ورود ---------- */
+.login {
+  display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  min-height: calc(100vh - 68px - 37px);
+}
+.login__form { display: grid; place-items: center; padding: var(--pad); }
+.login__art  { background: var(--bg-soft); overflow: hidden; position: relative; }
+.login__art img {
+  width: 100%; height: 100%; object-fit: cover;
+  animation: kenburns 28s ease-in-out infinite alternate;
+}
+@keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.09); } }
+@media (prefers-reduced-motion: reduce) { .login__art img { animation: none; } }
+@media (max-width: 800px) {
+  .login { grid-template-columns: 1fr; }
+  .login__art { order: -1; height: 190px; }
+}
+
+/* ---------- شمارنده سبد ---------- */
+.cart-btn { position: relative; }
+.cart-count {
+  display: inline-grid; place-items: center; min-width: 20px; height: 20px;
+  padding-inline: 5px; border-radius: 999px;
+  background: var(--gold); color: #fff; font-size: .72rem; font-weight: 700;
+  margin-inline-start: .35rem;
+}

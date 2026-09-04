@@ -71,6 +71,27 @@ CREATE TABLE IF NOT EXISTS users (
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
+-- کدهای ورود پیامکی. کد خام ذخیره نمی‌شود، فقط هش آن.
+CREATE TABLE IF NOT EXISTS otp_codes (
+  id          INTEGER PRIMARY KEY AUTOINCREMENT,
+  phone       TEXT NOT NULL,
+  code_hash   TEXT NOT NULL,
+  attempts    INTEGER NOT NULL DEFAULT 0,
+  expires_at  TEXT NOT NULL,
+  consumed_at TEXT,
+  created_at  TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_otp_phone ON otp_codes(phone);
+
+-- نشست‌های ورود. توکن هم هش می‌شود تا اگر پایگاه داده لو رفت، کسی نتواند وارد شود.
+CREATE TABLE IF NOT EXISTS sessions (
+  token      TEXT PRIMARY KEY,
+  user_id    INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  expires_at TEXT NOT NULL,
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_sessions_user ON sessions(user_id);
+
 CREATE TABLE IF NOT EXISTS carts (
   id         TEXT PRIMARY KEY,            -- شناسه نشست مهمان یا کاربر
   user_id    INTEGER REFERENCES users(id),
